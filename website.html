@@ -1,3 +1,84 @@
+
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Complex Analysis</title>
+    <!-- Include Plotly from the CDN -->
+    <script src="https://cdn.plot.ly/plotly-latest.min.js"></script>
+</head>
+<body>
+    <header>
+        <h1>Complex Analysis</h1>
+    </header>
+    <div class="container">
+        <h2>Historical Development in Complex Analysis</h2>
+        <p>
+            Complex analysis, also known as the theory of functions of a complex variable, is a branch of mathematics that studies complex numbers and functions of a complex variable.
+        </p>
+        <p>
+            The historical development of complex analysis can be traced back to the 18th century when mathematicians like Leonhard Euler and Jean le Rond d'Alembert started working on the foundations of complex numbers and their properties.
+        </p>
+        <p>
+            In the 19th century, Augustin-Louis Cauchy made significant contributions to complex analysis by introducing the concept of a complex function's limit, continuity, and the Cauchy-Riemann equations.
+        </p>
+        <p>
+            JavaScript can be used to create interactive visualizations and animations related to complex analysis. Below is a simple interactive graph showing a complex function's behavior:
+        </p>
+        <div id="complexGraph" style="width: 100%; height: 400px;"></div>
+    </div>
+
+    <!-- JavaScript for interactive graph -->
+    <script>
+        // Sample complex function: f(z) = z^2
+        function complexFunction(z) {
+            return math.multiply(z, z);
+        }
+
+        // Create a grid of complex numbers
+        const realValues = math.range(-2, 2, 0.1).toArray();
+        const imaginaryValues = math.range(-2, 2, 0.1).toArray();
+        const grid = [];
+        for (const re of realValues) {
+            for (const im of imaginaryValues) {
+                grid.push(math.complex(re, im));
+            }
+        }
+
+        // Compute the function values
+        const functionValues = grid.map(complexFunction);
+
+        // Extract real and imaginary parts for the plot
+        const realPart = functionValues.map(z => math.re(z));
+        const imagPart = functionValues.map(z => math.im(z));
+
+        // Create an interactive scatter plot
+        const trace = {
+            x: realPart,
+            y: imagPart,
+            mode: 'markers',
+            marker: {
+                size: 5,
+                color: realPart.map((z, index) => math.arg(functionValues[index])),
+                colorscale: 'Viridis',
+                colorbar: {
+                    title: 'Phase',
+                },
+            },
+        };
+
+        const layout = {
+            xaxis: {
+                title: 'Real Part',
+            },
+            yaxis: {
+                title: 'Imaginary Part',
+            },
+        };
+
+        Plotly.newPlot('complexGraph', [trace], layout);
+    </script>
+</body>
+</html>
 <!DOCTYPE html>
 <html>
 <head>
