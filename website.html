@@ -5,6 +5,39 @@
     <title>Complex Analysis</title>
     <!-- Include Plotly from the CDN -->
     <script src="https://cdn.plot.ly/plotly-latest.min.js"></script>
+    <style>
+       /* CSS styles for the webpage */
+body {
+    font-family: Arial, sans-serif;
+    margin: 0;
+    padding: 0;
+    background-color: #f0f0f0;
+}
+
+header {
+    background-color: #333;
+    color: #fff;
+    text-align: center;
+    padding: 20px;
+}
+
+.container {
+    max-width: 800px;
+    margin: 20px auto;
+    padding: 20px;
+    background-color: #fff;
+    box-shadow: 0px 0px 10px rgba(0, 0, 0, 0.1);
+}
+
+h1 {
+    color: #333;
+}
+
+p {
+    line-height: 1.6;
+}
+
+    </style>
 </head>
 <body>
     <header>
@@ -77,6 +110,7 @@
 
         Plotly.newPlot('complexGraph', [trace], layout);
     </script>
+    
 </body>
 </html>
 <!DOCTYPE html>
